@@ -1,0 +1,9 @@
+data/embeddings
+faces_dataset_for_embeddings
+output
+samples
+wandb
+*.zip
+__pycache__
+checkpoints
+a.ipynb
