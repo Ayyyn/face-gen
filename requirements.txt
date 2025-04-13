@@ -7,4 +7,5 @@ tqdm>=4.65.0
 scikit-learn>=1.0.0
 opencv-python>=4.5.0
 albumentations>=1.3.0
-insightface>=0.7.0  # For ArcFace embeddings 
+insightface>=0.7.0  # For ArcFace embeddings
+scipy>=1.7.0  # For FID score calculation 
