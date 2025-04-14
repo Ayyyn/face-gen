@@ -126,7 +126,8 @@ def main():
             with torch.no_grad():
                 sample_images = fake_images[:8]  # Take first 8 images
                 wandb.log({
-                    'generated_images': [wandb.Image(img) for img in sample_images]
+                    'generated_images': [wandb.Image(img) for img in sample_images],
+                    'real_images': [wandb.Image(img) for img in real_images[:8]]
                 })
 
 if __name__ == '__main__':
