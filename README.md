@@ -7,7 +7,18 @@ A PyTorch-based generative model that generates 128x128 RGB images of human face
 - Conditional GAN architecture for face generation
 - Uses ArcFace embeddings as conditioning input
 - Efficient training pipeline with Weights & Biases integration
-- Zero-shot generalization to unseen face embeddings(scope of improvement)
+- Zero-shot generalization to unseen face embeddings
+  
+## Scope of Improvement
+
+- Hyperparameter Tuning
+- Larger Dataset (Model uses 10k images only)
+- Longer training period (current training involved only 200 epochs)
+- Addition of metrics- FID and Inception Scores
+- deeper generator
+- check performance on decrease in noise usage
+
+[wandb workspace url](https://wandb.ai/ayushinanavati/face-gen/runs/5d8mqezt?nw=nwuserayushinanavati)
 
 ## Setup
 
@@ -22,10 +33,13 @@ cd face-gen
 pip install -r requirements.txt
 ```
 
-3. Download the [ffhq-128*128_dataset](https://www.kaggle.com/datasets/greatgamedota/ffhq-face-data-set) and precompute embeddings using ArcFace
+3. Download the [ffhq-128*128_dataset](https://www.kaggle.com/datasets/greatgamedota/ffhq-face-data-set) and precompute embeddings using ArcFace(```buffalo_sc``` model was selected as it's light-weight)
 ```bash
 python3 prepare_data.py --data_dir <input_images_dir> --output_dir <output_embeddings_dir>
 ```
+
+- link to 70k images- [all_images](https://drive.google.com/file/d/1KHkdHwKRxWRYV_tRD-8ZY1q-6nUojjOE/view?usp=sharing)
+- link to corresponding 70k embeddings- [all_embeddings](https://drive.google.com/drive/folders/1EtQHksQ9rS9m9VQNOTRe8O3f8B2o3Q-O?usp=drive_link)
 
 ## Project Structure
 
@@ -50,6 +64,10 @@ face-gen/
 
 ```
 
+### Resources
+
+The model was trained for 200 epochs on T4 on Colab for approximately 1.5 hours
+
 ## Training
 
 To start training:
@@ -70,6 +88,10 @@ python scripts/train.py \
 ```
 
 Training progress can be monitored on the Weights & Biases dashboard.
+
+### Checkpoint Files
+
+Checkpoint files at- [checkpoint_files](https://drive.google.com/file/d/14sJAtSQD9sBHN3kPfN-01WwMY8tPK7mI/view?usp=drive_link)
 
 ## Inference
 
